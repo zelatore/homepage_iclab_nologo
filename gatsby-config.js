@@ -6,7 +6,7 @@ const cssnano = require('cssnano')
 const postCSSMixins = require('postcss-mixins')
 
 module.exports = {
-  pathPrefix: "/homepage_iclab",
+  pathPrefix: "/homepage_iclab_nologo",
   siteMetadata: {
     title: 'Interactive Computing Lab',
     description: `ICLAB Homepage`,
