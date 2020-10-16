@@ -23,7 +23,7 @@ module.exports = {
     menuMoreText: 'Members',
     mainMenu: [     
       {
-        title: 'Research',
+        title: 'Research Highlights',
         path: '/research',
       },
       {
