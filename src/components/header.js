@@ -51,7 +51,8 @@ const Header = props => {
           <Link to="/">
             <div className={style.logo}>
               {siteLogo.src ? (
-                <img src={mainLogo} alt={siteLogo.alt} />
+                /*<img src={mainLogo} alt={siteLogo.alt} /> */
+                <img src={siteLogo.src} alt={siteLogo.alt} />
               ) : (
                 <>
                   <span className={style.mark}></span>

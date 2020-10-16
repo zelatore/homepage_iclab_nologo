@@ -13,7 +13,7 @@ module.exports = {
     copyrights: '',
     author: '@zelatore',
     logo: {
-      src: 'src/images/logo.png',
+      src: '',
       alt: '',
     },
     logoText: 'ICLAB',
