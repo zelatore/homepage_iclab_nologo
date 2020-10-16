@@ -12,7 +12,7 @@ const ResearchComponent = ({
 }) => {
  
 let research1 = 'https://woohyeok-choi.github.io/blog/categories/research/posts/2017-05-01-00-00-just-in-time-health-intervention-for-prevention-of-prolonged-sedentary-behavior'
-let research2 = '/personalresearch'
+let research2 = '/homepage_iclab_nologo/personalresearch'
 
   return (
     <div className={style.post}>

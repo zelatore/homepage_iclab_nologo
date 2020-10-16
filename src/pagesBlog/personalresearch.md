@@ -3,7 +3,7 @@ title: "Research Title"
 dateStr: "Fall, 2020"
 author: "Researcher name"
 coverImage: "../images/introduction_sample1.png"
-path: "/personalresearch"
+path: "/homepage_iclab_nologo/personalresearch"
 tags: ["Mobile sensing", "Signal processing"]
 ---
 
