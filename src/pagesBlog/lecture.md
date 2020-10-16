@@ -3,7 +3,7 @@ title: "Lecture Title"
 dateStr: "Fall, 2020"
 author: "Uichin Lee"
 coverImage: "../images/introduction_sample1.png"
-path: "/homepage_iclab_nologo/lecture"
+path: "/lecture"
 tags: ["Mobile sensing", "Signal processing"]
 ---
 
