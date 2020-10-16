@@ -3,7 +3,7 @@
   "description": "ICLAB Homepage",
   "version": "1.0.0",
   "author": "iclab",
-  "homepage": "http://zelatore.github.io/homepage_iclab",
+  "homepage": "http://zelatore.github.io/homepage_iclab_nologo",
   "keywords": [
     "gatsby",
     "minimal",
@@ -66,6 +66,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/zelatore/homepage_iclab"
+    "url": "https://github.com/zelatore/homepage_iclab_nologo"
   }
 }
