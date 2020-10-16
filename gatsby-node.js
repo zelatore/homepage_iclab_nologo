@@ -6,9 +6,22 @@ const { toKebabCase } = require('./src/helpers')
 const pageTypeRegex = /src\/(.*?)\//
 const getType = node => node.fileAbsolutePath.match(pageTypeRegex)[1]
 
-const pageTemplate = path.resolve(`./src/templates/page.js`)
-const indexTemplate = path.resolve(`./src/templates/index.js`)
-const tagsTemplate = path.resolve(`./src/templates/tags.js`)
+const templates = {
+  indexTemplate: path.resolve(`./src/templates/templateIndex.js`),
+  blogTemplate: path.resolve(`./src/templates/templateBlog.js`),
+  docTemplate: path.resolve(`./src/templates/templateDoc.js`),
+  tagsTemplate: path.resolve(`./src/templates/templateTag.js`),
+  professorTemplate: path.resolve(`./src/templates/templateProfessor.js`),
+  lectureTemplate: path.resolve(`./src/templates/templateLecture.js`),
+  researchTemplate: path.resolve(`./src/templates/templateResearch.js`),
+  personalresearchTemplate: path.resolve(`./src/templates/templatePersonalResearch.js`),
+}
+
+//const pageTemplate = path.resolve(`./src/templates/page.js`)
+//const indexTemplate = path.resolve(`./src/templates/index.js`)
+//const bulletTemplate = path.resolve(`./src/templates/bulletpage.js`)
+//const tagsTemplate = path.resolve(`./src/templates/tags.js`)
+
 
 exports.createPages = ({ actions, graphql, getNodes }) => {
   const { createPage } = actions
@@ -57,18 +70,48 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
     const posts = allNodes.filter(
       ({ internal, fileAbsolutePath }) =>
         internal.type === 'MarkdownRemark' &&
-        fileAbsolutePath.indexOf('/posts/') !== -1,
+        fileAbsolutePath.indexOf('/pageIndex/') !== -1,
     )
 
     // Create posts index with pagination
     paginate({
       createPage,
       items: posts,
-      component: indexTemplate,
+      component: templates['indexTemplate'],
       itemsPerPage: siteMetadata.postsPerPage,
       pathPrefix: '/',
     })
 
+    // Create pages from Markdown files
+    result.data.allMarkdownRemark.edges.forEach(edge => {            
+      let slug = edge.node.frontmatter.path    
+     
+      // Get the part of the slug we want, ex. journal
+      let slugKey = slug.split('/')[1]
+
+      // If the slug matches a template, use that, otherwise
+      // fallback to the default journal template.
+      // You could use your own logic here.
+      //let template = templates[slugKey] || templates['journal']
+      //console.log("template: "+slugKey)
+      
+      let templateStr=''
+      if(slugKey == '') templateStr = 'indexTemplate';    
+      else if(slugKey == 'lecture') templateStr = 'lectureTemplate';
+      else if(slugKey == 'personalresearch') templateStr = 'personalresearchTemplate';
+      else if(slugKey == 'student' || slugKey == 'lectures' || slugKey == 'publication') templateStr = 'docTemplate';
+      else if(slugKey == 'professor') templateStr = 'professorTemplate';  
+      else if(slugKey == 'research') templateStr = 'researchTemplate';     
+      
+      
+      createPage({
+        path: slug, // required
+        component: templates[templateStr],
+        context: { slug: slug },
+      })
+    })
+
+    /*
     // Create each markdown page and post
     forEach(({ node }, index) => {
       const previous = index === 0 ? null : sortedPages[index - 1].node
@@ -88,6 +131,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
         },
       })
     }, sortedPages)
+    */
 
     // Create tag pages
     const tags = filter(
@@ -104,7 +148,7 @@ exports.createPages = ({ actions, graphql, getNodes }) => {
       paginate({
         createPage,
         items: postsWithTag,
-        component: tagsTemplate,
+        component: templates['tagsTemplate'],
         itemsPerPage: siteMetadata.postsPerPage,
         pathPrefix: `/tag/${toKebabCase(tag)}`,
         context: {

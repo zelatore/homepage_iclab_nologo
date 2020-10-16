@@ -13,10 +13,11 @@ import Img from 'gatsby-image'
  * - `StaticQuery`: https://gatsby.app/staticquery
  */
 
+ /*
 const Image = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "images" }) {
+      introductionImage: file(relativePath: { eq: "images" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
@@ -25,7 +26,50 @@ const Image = () => {
       }
     }
   `)
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+  return (
+    <Img 
+      fluid={[
+        data.introductionImage.childImageSharp.fluid
+      ]}
+    />
+  )
 }
+*/
+
+const Image = props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        images: allFile {
+          edges {
+            node {
+              relativePath
+              name
+              childImageSharp {
+                fluid(maxWidth: 800) {
+                  ...GatsbyImageSharpFluid_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      const image = data.images.edges.find(n => {
+        return n.node.relativePath.includes(props.filename)
+      })
+      if (!image) {
+        return null
+      }
+
+      const imageFluid = image.node.childImageSharp.fluid
+      return <Img alt={props.alt} fluid={imageFluid} />
+    }}
+  />
+)
+
+
+
 
 export default Image

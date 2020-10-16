@@ -64,3 +64,44 @@
 .postContent {
   position: relative;
 }
+
+.profImgDiv {
+  display: flex;
+}
+
+.profIntro {
+  margin-left: 40px;
+  margin-top: -20px;
+
+}
+
+.profIntro > p {
+  margin-left: 10px;
+}
+
+.researchInfoDiv > h3 {
+  color: #0A9696;
+}
+
+.researchInfo {
+  display: flex;  
+}
+
+.researchInfoText > h4 {
+  margin-left: 30px;
+  margin-top: 5px;
+  color: #FFC314;
+}
+
+.researchInfoText > p {
+  margin-left: 30px;
+}
+
+.readMore2 {
+  margin-left: 30px;
+}
+
+.researchLink {
+  margin-left: 30px;
+}
+

@@ -6,32 +6,41 @@ const cssnano = require('cssnano')
 const postCSSMixins = require('postcss-mixins')
 
 module.exports = {
+  pathPrefix: "/iclab_homepage1",
   siteMetadata: {
-    title: `Hello Friend`,
-    description: `A simple starter for Gatsby. That's it.`,
+    title: 'Interactive Computing Lab',
+    description: `ICLAB Homepage`,
     copyrights: '',
-    author: `@panr`,
+    author: '@zelatore',
     logo: {
-      src: '',
+      src: 'src/images/logo.png',
       alt: '',
     },
-    logoText: 'hello friend',
+    logoText: 'ICLAB',
     defaultTheme: 'dark',
     postsPerPage: 5,
-    showMenuItems: 2,
-    menuMoreText: 'Show more',
-    mainMenu: [
+    showMenuItems: 3,
+    menuMoreText: 'Members',
+    mainMenu: [     
       {
-        title: 'About',
-        path: '/about',
+        title: 'Research',
+        path: '/research',
       },
       {
-        title: 'Showcase',
-        path: '/showcase',
+        title: 'Lectures',
+        path: '/lectures',
       },
       {
-        title: 'Example',
-        path: '/example',
+        title: 'Publication',
+        path: '/publication',
+      },
+      {
+        title: 'Professor',
+        path: '/professor',
+      },
+      {
+        title: 'Students',
+        path: '/student',
       },
     ],
   },
@@ -48,15 +57,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `posts`,
-        path: `${__dirname}/src/posts`,
+        name: `index page`,
+        path: `${__dirname}/src/pageIndex`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages`,
+        name: `document pages`,
+        path: `${__dirname}/src/pagesDoc`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `blog pages`,
+        path: `${__dirname}/src/pagesBlog`,
       },
     },
     {
@@ -112,15 +128,15 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `gatsby-starter-hello-friend`,
-        short_name: `hello-friend`,
-        start_url: `/`,
-        background_color: `#292a2d`,
-        theme_color: `#292a2d`,
-        display: `minimal-ui`,
-        icon: `src/images/hello-icon.png`,
+        name: 'Interactive computing Lab',
+        short_name: 'ICLAB',
+        start_url: '/',
+        background_color: '#292a2d',
+        theme_color: '#292a2d',
+        display: 'minimal-ui',
+        icon: 'src/images/hello-icon.png',
       },
     },
   ],

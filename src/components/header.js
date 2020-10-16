@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Helmet } from 'react-helmet'
-
 import Menu from './menu'
-
+import mainLogo from'../images/logo.png'
 import style from '../styles/header.module.css'
 
 const Header = props => {
@@ -16,26 +15,28 @@ const Header = props => {
     menuMoreText,
     defaultTheme,
   } = props
-  const defaultThemeState =
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) ||
-    null
+
+  const defaultThemeState = (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || null
   const [userTheme, changeTheme] = useState(defaultThemeState)
   const [isMobileMenuVisible, toggleMobileMenu] = useState(false)
   const [isSubMenuVisible, toggleSubMenu] = useState(false)
+
   const onChangeTheme = () => {
     const opositeTheme =
       (userTheme || defaultTheme) === 'light' ? 'dark' : 'light'
 
     changeTheme(opositeTheme)
 
-    typeof window !== 'undefined' &&
-      window.localStorage.setItem('theme', opositeTheme)
+    typeof window !== 'undefined' && window.localStorage.setItem('theme', opositeTheme)
   }
   const onToggleMobileMenu = () => toggleMobileMenu(!isMobileMenuVisible)
   const onToggleSubMenu = () => toggleSubMenu(!isSubMenuVisible)
 
+  
+
   return (
     <>
+      {/*웹 문서의 헤더 값을 변경할 때 사용하는 리액트 컴포넌트*/}
       <Helmet>
         <body
           className={
@@ -50,10 +51,10 @@ const Header = props => {
           <Link to="/">
             <div className={style.logo}>
               {siteLogo.src ? (
-                <img src={siteLogo.src} alt={siteLogo.alt} />
+                <img src={mainLogo} alt={siteLogo.alt} />
               ) : (
                 <>
-                  <span className={style.mark}>></span>
+                  <span className={style.mark}></span>
                   <span className={style.text}>{logoText}</span>
                   <span className={style.cursor} />
                 </>
@@ -91,5 +92,9 @@ Header.propTypes = {
   mainMenuItems: PropTypes.number,
   menuMoreText: PropTypes.string,
 }
+
+
+
+
 
 export default Header

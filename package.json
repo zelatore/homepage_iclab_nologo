@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-hello-friend",
-  "description": "A simple starter for Gatsby. That's it.",
-  "version": "0.2.0",
-  "author": "Radek Kozieł <radoslaw.koziel@gmail.com>",
+  "name": "iclab-homepage",
+  "description": "ICLAB Homepage",
+  "version": "1.0.0",
+  "author": "iclab",
   "keywords": [
     "gatsby",
     "minimal",
@@ -10,14 +10,14 @@
     "blog",
     "theme",
     "dark",
-    "light",
-    "personal site"
+    "light"
   ],
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
     "dev": "gatsby clean && gatsby develop",
     "format": "prettier --write \"src/**/*.js\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "dependencies": {
@@ -62,12 +62,5 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.15.2",
     "rambdax": "^1.8.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/panr/gatsby-starter-hello-friend"
-  },
-  "bugs": {
-    "url": "https://github.com/panr/gatsby-starter-hello-friend/issues"
   }
 }
