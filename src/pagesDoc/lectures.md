@@ -4,7 +4,7 @@ path: "/lectures"
 ---
 
 ## 2020
-- <a href="/homepage_iclab_nologo/lecture"  style="color: #73B2B4" target="_blank">KSE801(Fall) Sensor Data Science</a>
+- <a href="https://zelatore.github.io/homepage_iclab_nologo/lecture"  style="color: #73B2B4" target="_blank">KSE801(Fall) Sensor Data Science</a>
 - <a href="https://docs.google.com/document/d/1lTjJtuPhZRZNYc2fQW67g2Ya379CtQuLJKPFxhAs1n8/edit" style="color: #73B2B4" target="_blank">IE481 (Spring) Data Visualization</a>
 - KSE624 (Spring) Mobile Pervasive Computing
 
