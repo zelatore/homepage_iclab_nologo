@@ -3,6 +3,7 @@
   "description": "ICLAB Homepage",
   "version": "1.0.0",
   "author": "iclab",
+  "homepage": "http://zelatore.github.io/homepage_iclab",
   "keywords": [
     "gatsby",
     "minimal",
@@ -62,5 +63,9 @@
     "postcss-url": "^8.0.0",
     "prettier": "^1.15.2",
     "rambdax": "^1.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zelatore/homepage_iclab"
   }
 }
